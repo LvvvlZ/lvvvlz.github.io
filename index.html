@@ -1,7 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>世界昆虫图鉴</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<header>
+    <h1>🌎 世界昆虫图鉴</h1>
+    <p>World Insect Atlas</p>
+</header>
+
+<section id="homePage">
+
+    <div class="hero">
+        <h2>选择地区</h2>
+        <p>点击地区查看代表性昆虫</p>
+    </div>
+
+    <div class="region-grid">
+
+        <button onclick="loadRegion('east-asia')">
+            东亚
+        </button>
+
+        <button onclick="loadRegion('europe')">
+            欧洲
+        </button>
+
+        <button onclick="loadRegion('africa')">
+            非洲
+        </button>
+
+        <button onclick="loadRegion('north-america')">
+            北美洲
+        </button>
+
+    </div>
+
+</section>
+
+<section id="regionPage" class="hidden">
+
+    <div class="toolbar">
+
+        <button onclick="backHome()">
+            ← 返回地图
+        </button>
+
+        <h2 id="regionTitle"></h2>
+
+    </div>
+
+    <div class="search-wrap">
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="搜索昆虫名称或学名..."
+            oninput="searchInsects()">
+
+    </div>
+
+    <div id="insectGrid" class="insect-grid"></div>
+
+</section>
+
+<div id="modal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">
+            ×
+        </span>
+
+        <div id="modalBody"></div>
+
+    </div>
+
+</div>
+
+<script src="data/east-asia.js"></script>
+
+<script src="app.js"></script>
+
 </body>
 </html>
